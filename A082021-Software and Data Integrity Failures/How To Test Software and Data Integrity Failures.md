@@ -43,7 +43,7 @@ In this article, we’ll be going through how to test for software and data inte
             3. The malicious update is installed in the customer's environment.
             4. The attacker uses the malicious code to gain access to the customer's network.
         
-        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled.png)
+        ![Untitled](Image_HowToCheck/Untitled.png)
         
 2. **Checklist for Software and Data Integrity Failures**
     - *Check the security of the data and software serving system.*
@@ -59,24 +59,24 @@ In this article, we’ll be going through how to test for software and data inte
             - Lab link: [https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-modifying-serialized-data-types](https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-modifying-serialized-data-types)
             - Description:
                 
-                ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%201.png)
+                ![Untitled](Image_HowToCheck/Untitled%201.png)
                 
             - Attack narrative:
                 - **Analysis**
                     - The vulnerability is in authenticated functionality, so I log in with the known credentials of `wiener`and look at the response:
                         
-                        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%202.png)
+                        ![Untitled](Image_HowToCheck/Untitled%202.png)
                         
                     - The application stores a session cookie after login. It is visible that it ends with two URL-encoded `=` characters. That is a strong indication that the cookie is base64-encoded.I send the string to Burp Decoder and look at its content:
                         
-                        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%203.png)
+                        ![Untitled](Image_HowToCheck/Untitled%203.png)
                         
                     - It contains two values, my `username`and an `access_token`.
                 - **The unintended way**
                     - I wonder what will happen if I set the username to `administrator`
                      and use a boolean as the access code.
                         
-                        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%204.png)
+                        ![Untitled](Image_HowToCheck/Untitled%204.png)
                         
                     - The base64-encoded string does not end with `=`, so no URL-encoding is required. I store the string in my cookie and refresh the page. The result is somewhat unexpected and very interesting. It shows an internal server error that shows me all access tokens.
                         
@@ -85,16 +85,16 @@ In this article, we’ll be going through how to test for software and data inte
                 - **The intended payload**
                     - Trying a boolean value for the access code did not work the intended way, so I retry using an integer value:
                         
-                        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%205.png)
+                        ![Untitled](Image_HowToCheck/Untitled%205.png)
                         
                     - I store it in the browser and refresh the page:
                         
-                        ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%206.png)
+                        ![Untitled](Image_HowToCheck/Untitled%206.png)
                         
                 
                 ⇒ The lab is solve.
                 
-                ![Untitled](How%20To%20Test%20Software%20and%20Data%20Integrity%20Failures%207e9f2421bf0a44acb184460ffff6d841/Untitled%207.png)
+                ![Untitled](Image_HowToCheck/Untitled%207.png)
                 
     - *Check the configuration of the system, software configuration and hardware.*
         - System configuration testing.
