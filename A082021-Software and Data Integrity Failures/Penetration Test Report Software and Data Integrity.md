@@ -11,7 +11,7 @@ Attack Narrative
     - Lab-link: [https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-developing-a-custom-gadget-chain-for-php-deserialization](https://portswigger.net/web-security/deserialization/exploiting/lab-deserialization-developing-a-custom-gadget-chain-for-php-deserialization)
     - Description
         
-        ![Untitled](Penetration%20Test%20Report%20Software%20and%20Data%20Integrit%209ca4bdff27b647eb9f0534d277e5b07e/Untitled.png)
+        ![Untitled](Image_Report/Untitled.png)
         
     - The term we need to know:
         - Gadget chain is the result of assembling method calls, assigning fields so that it follows the desired flow: RCE, write file, …
