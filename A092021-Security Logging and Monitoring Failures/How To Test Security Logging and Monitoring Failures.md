@@ -89,6 +89,7 @@ In this article, we’ll be going through how to test for security logging and m
             - Ensure that the user accounts are configured properly with the right privileges and permissions.
         - *Lab demo*
             - Lab link: [https://curiositykillscolby.com/2020/12/27/hacking-owasps-juice-shop-pt-61-leaked-access-logs/](https://curiositykillscolby.com/2020/12/27/hacking-owasps-juice-shop-pt-61-leaked-access-logs/)
+            - Difficult: 4/5
             - Description: [https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html](https://pwning.owasp-juice.shop/part2/sensitive-data-exposure.html)
             - I also find another description of lab: ***As the challenge name implies, your task is to find some leaked access logs which happen to have a fairly common format. A very popular help platform for developers might contain breadcrumbs towards solving this challenge. The actual log file was copied & paste onto a platform often used to share data quickly with externals or even just internal peers. Once you found and harvested the important piece of information from the log, you could employ a technique called Password Spraying to solve this challenge.***
             - Attack narrative:
