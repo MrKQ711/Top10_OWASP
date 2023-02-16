@@ -23,7 +23,7 @@ Attack Narrative
 2. ***Attack Narrative***
     - Check the cookie session to get the serialized php object.
         
-        ![Untitled](Penetration%20Test%20Report%20Software%20and%20Data%20Integrit%209ca4bdff27b647eb9f0534d277e5b07e/Untitled%201.png)
+        ![Untitled](Image_Report/Untitled%201.png)
         
         - This can be interpreted as follows:
             - `O:4:"User"` - An object with the 4-character class name `"User"`
@@ -37,7 +37,7 @@ Attack Narrative
         
     - Check the source of web page and in all of them, we get the information about the located of file php.
         
-        ![Untitled](Penetration%20Test%20Report%20Software%20and%20Data%20Integrit%209ca4bdff27b647eb9f0534d277e5b07e/Untitled%202.png)
+        ![Untitled](Image_Report/Untitled%202.png)
         
         ⇒ So we check the link in the browser, we can add a tilde (~) at the end the file link like this:
         
@@ -216,4 +216,4 @@ Attack Narrative
     
      and paste it here in the session cookie. Then click apply and send. The lab is solved!
     
-    ![Untitled](Penetration%20Test%20Report%20Software%20and%20Data%20Integrit%209ca4bdff27b647eb9f0534d277e5b07e/Untitled%203.png)
+    ![Untitled](Image_Report/Untitled%203.png)
