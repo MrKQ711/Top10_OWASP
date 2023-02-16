@@ -79,48 +79,48 @@ In this article, we’ll be going through how to test for broken authentication,
                     - **Enumerate username**
                         - As usual, the first step is to analyze the login functionality of lab. I try to log in with some random username and password. As expected, the error message is a generic `Something is wrong`message:
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%201.png)
+                            ![Untitled](Image_HowToCheck/Untitled%201.png)
                             
                         - The next step I load the request into Intruder, load the provided username list and add the known good username `wiener`.
                             - Attack type: *Sniper*
                             - Payload: *provided username list* + `wiener`
                         - Unfortunately, this does not result in a serious difference in response times. Upon closer look it becomes obvious why:
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%202.png)
+                            ![Untitled](Image_HowToCheck/Untitled%202.png)
                             
                         - Now i  try to do some simple HTTP request header manipulation can bypass this brute force protection. A quick Google search leads to [a page with the correct answer](https://medium.com/r3d-buck3t/bypass-ip-restrictions-with-burp-suite-fb4c72ec8e9c): the `X-Forwarded-For` header.
                         - Adding it with a random value `X-Forwarded-For: abc123` will allow for further login attempts. I guess that using a static value there will just lock it up again, so include this value in the intruder. Using the Battering ram attack type, the `X-Forwarded-For` header will contain the username in each request, providing unique values and bypassing the lockout.
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%203.png)
+                            ![Untitled](Image_HowToCheck/Untitled%203.png)
                             
                             - Payload: *provided username list* + `wiener`
                         - Unfortunately, the results are still inconclusive. The response time ranges from 68ms to 132ms. The one known correct username `wiener` is right in the middle of the response time with 93ms.
                         - The one parameter that is definitely checked for valid usernames is the password field. I try using some absurdly long password (other parameters as above) and see how it goes:
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%204.png)
+                            ![Untitled](Image_HowToCheck/Untitled%204.png)
                             
                         - Finally, a useful response:
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%205.png)
+                            ![Untitled](Image_HowToCheck/Untitled%205.png)
                             
                             ⇒ Valid username: **athena**
                             
                     - **Brute force password**
                         - Now I repeat the step for the password until the correct password is found. I change the value of the `X-Forwarded-For`header to avoid repeating the values of the username enumeration.
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%206.png)
+                            ![Untitled](Image_HowToCheck/Untitled%206.png)
                             
                             - Payload: *provided password list*
                         - On successful login, the page redirects, so I remove all responses with 2xx status codes (alternative, filter for responses not containing 'Invalid username or password
                             
-                            ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%207.png)
+                            ![Untitled](Image_HowToCheck/Untitled%207.png)
                             
                              ⇒ Password for user: **555555**
                             
                     
                     ⇒ I log in with the username and password combination (if the browser is still on lockout, intercept the request and manually add the header), or simply use Burps 'Request in browser' feature to avoid typing results in and the lab updates to
                     
-                    ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%208.png)
+                    ![Untitled](Image_HowToCheck/Untitled%208.png)
                     
         - Test remember me functionality
             - Look for passwords being stored in a cookie. Examine the cookies stored by the application. Verify that the credentials are not stored in clear text, but are hashed.
@@ -204,7 +204,7 @@ In this article, we’ll be going through how to test for broken authentication,
             - *Testing for valid user with wrong password*
                 - Insert a valid user ID and a wrong password and record the error message generated by the application. The browser should display a message:
                 
-                ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%209.png)
+                ![Untitled](Image_HowToCheck/Untitled%209.png)
                 
                        or unlike any message that reveals the existence of the user like the following:
                 
@@ -213,7 +213,7 @@ In this article, we’ll be going through how to test for broken authentication,
             - *Testing for a Nonexistent Username*
                 - Insert an invalid user ID and a wrong password and record the server answer (the tester should be confident that the username is not valid in the application). Record the error message and the server answer. If the tester enters a nonexistent user ID, they can receive a message similar to :
                     
-                    ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%2010.png)
+                    ![Untitled](Image_HowToCheck/Untitled%2010.png)
                     
                     *or a message like the following one:*
                     
@@ -308,7 +308,7 @@ In this article, we’ll be going through how to test for broken authentication,
             - *Enumerate Authentication Functionality*
                 - For each alternative channel where user accounts or functionality are shared, identify if all the authentication functions of the primary channel are available, and if anything extra exists. It may be useful to create a grid like the one below:
                     
-                    ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled%2011.png)
+                    ![Untitled](Image_HowToCheck/Untitled%2011.png)
                     
             - *The way to fix*
                 - Ensure that all authentication mechanisms are configured to use strong passwords or passphrases.
