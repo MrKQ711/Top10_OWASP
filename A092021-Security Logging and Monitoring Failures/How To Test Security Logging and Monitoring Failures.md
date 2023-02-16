@@ -48,7 +48,7 @@ In this article, we’ll be going through how to test for security logging and m
         - [ ]  Since the organization does not follow adequate logging and monitoring practices, they are unable to detect active attacks.
         - [ ]  The data breach continues undetected for months.
         
-        ![Untitled](How%20To%20Test%20Security%20Logging%20and%20Monitoring%20Failur%2020a954189d4442fc971a664d766d535d/Untitled.png)
+        ![Untitled](Image_HowToCheck/Untitled.png)
         
 2. **Checklist for Security Logging and Monitoring Failures**
     - Establish a baseline for normal activity
@@ -103,11 +103,11 @@ In this article, we’ll be going through how to test for security logging and m
                  or `sjss22%@%E2%82%AC55jaJasj!.k8`
                 - Now i login to the web Juice Shop with account admin by some technique SQL injection
                     
-                    ![Untitled](How%20To%20Test%20Security%20Logging%20and%20Monitoring%20Failur%2020a954189d4442fc971a664d766d535d/Untitled%201.png)
+                    ![Untitled](Image_HowToCheck/Untitled%201.png)
                     
                 - I guess the web has the folder for the administrator so that i try to:
                     
-                    ![Untitled](How%20To%20Test%20Security%20Logging%20and%20Monitoring%20Failur%2020a954189d4442fc971a664d766d535d/Untitled%202.png)
+                    ![Untitled](Image_HowToCheck/Untitled%202.png)
                     
                     ⇒ I have to log in with the folder which have all the the valid account user.
                     
@@ -116,7 +116,7 @@ In this article, we’ll be going through how to test for security logging and m
                     ⇒ I see that [J12934@juice-sh.op](mailto:J12934@juice-sh.op) and thankfully the password `0Y8rMnww$*9VFYE§59-!Fg1L6t&6lB`
                      worked and I was in.
                     
-                    ![Untitled](How%20To%20Test%20Security%20Logging%20and%20Monitoring%20Failur%2020a954189d4442fc971a664d766d535d/Untitled%203.png)
+                    ![Untitled](Image_HowToCheck/Untitled%203.png)
                     
     - Monitor network traffic
         - [ ]  Set up a network monitoring tool such as Wireshark or a packet analyzer.
