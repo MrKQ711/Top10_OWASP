@@ -71,7 +71,7 @@ In this article, we’ll be going through how to test for broken authentication,
                 - Lab link: [https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing](https://portswigger.net/web-security/authentication/password-based/lab-username-enumeration-via-response-timing)
                 - Description:
                     
-                    ![Untitled](How%20To%20Test%20Broken%20Authentication%2043404930b915415faf8cea59c7dabbbd/Untitled.png)
+                    ![Untitled](Image_HowToCheck/Untitled.png)
                     
                 - Candidate usernames: [https://portswigger.net/web-security/authentication/auth-lab-usernames](https://portswigger.net/web-security/authentication/auth-lab-usernames)
                 - Candidate passwords: [https://portswigger.net/web-security/authentication/auth-lab-passwords](https://portswigger.net/web-security/authentication/auth-lab-passwords)
