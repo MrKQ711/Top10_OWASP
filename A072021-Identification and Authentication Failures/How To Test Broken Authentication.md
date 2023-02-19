@@ -8,7 +8,7 @@ In this article, we’ll be going through how to test for broken authentication,
 
 ---
 
-[*What is broken authentication?*](1-What-is-broken-authentication?)
+[**What is broken authentication?**](1-What-is-broken-authentication?)
 
 ---
 
@@ -35,7 +35,7 @@ In this article, we’ll be going through how to test for broken authentication,
 
 ---
 
-1. ** What is broken authentication?**
+1. **What is broken authentication?**
     - Broken authentication is a type of vulnerability that allows attacker to get into a web application without proper credentials
     - This could be carried out either by bypassing the authentication mechanism put in place or by brute-force another user’s account.
     - If the attacker successfully bypassed or brute-force his way into another user’s account, they gain access to all the data and privileges of that user account.
