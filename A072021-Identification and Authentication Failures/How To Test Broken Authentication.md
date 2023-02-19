@@ -8,7 +8,7 @@ In this article, we’ll be going through how to test for broken authentication,
 
 ---
 
-[**What is broken authentication?**](#1-What-is-broken-authentication?)
+[**What is broken authentication?**](#What-is-broken-authentication?)
 
 ---
 
@@ -33,9 +33,9 @@ In this article, we’ll be going through how to test for broken authentication,
 
 *References*
 
----
 
-1. **What is broken authentication?**
+
+## **What is broken authentication?**
     - Broken authentication is a type of vulnerability that allows attacker to get into a web application without proper credentials
     - This could be carried out either by bypassing the authentication mechanism put in place or by brute-force another user’s account.
     - If the attacker successfully bypassed or brute-force his way into another user’s account, they gain access to all the data and privileges of that user account.
@@ -43,7 +43,7 @@ In this article, we’ll be going through how to test for broken authentication,
     - This category slipped down from second place and now contains Common Weakness Enumerations (CWEs) relating to identification issues. It was previously known as broken authentication.
     - The severity of this vulnerability can be so high. Say, an attacker was able to brute-force his way into the administrator account of a web application, this means he gets full control over the web application.
     - This article seeks to demonstrate how an attacker tests for broken authentication in a web application and how to prevent them.
-2. **Checklist for broken authentication**
+## **Checklist for broken authentication**
     - ***Application Password Functionality***
         - Test for weak lock out mechanism
             - *An example test may be as follows:*
