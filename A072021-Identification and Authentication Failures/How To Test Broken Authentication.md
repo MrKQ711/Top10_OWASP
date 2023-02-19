@@ -8,7 +8,7 @@ In this article, we’ll be going through how to test for broken authentication,
 
 ---
 
-[*What is broken authentication?*](#1. What is broken authentication?)
+[*What is broken authentication?*](1. What is broken authentication?)
 
 ---
 
